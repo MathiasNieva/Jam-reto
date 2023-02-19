@@ -1,0 +1,20 @@
+CREATE TABLE Artistas(
+	ArtistaId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+	Nombre VARCHAR (50),
+	Direccion VARCHAR (100),
+	Telefono INT
+);
+
+CREATE TABLE Discos(
+	DiscoId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+	Nombre VARCHAR (50),
+	Año INT
+);
+
+CREATE TABLE ArtistaDisco (
+  ArtistaId UNIQUEIDENTIFIER,
+  DiscoId UNIQUEIDENTIFIER,
+  CONSTRAINT PK_ArtistaDisco PRIMARY KEY (ArtistaId, DiscoId),
+  CONSTRAINT FK_ArtistaDisco_Artista FOREIGN KEY (ArtistaId) REFERENCES Artistas (ArtistaId),
+  CONSTRAINT FK_ArtistaDisco_Disco FOREIGN KEY (DiscoId) REFERENCES Discos (DiscoId)
+);
