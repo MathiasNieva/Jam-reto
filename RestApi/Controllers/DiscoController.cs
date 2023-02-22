@@ -138,6 +138,7 @@ namespace RestApi.Controllers
             {
                 return Problem("Entity set 'DiscoContext.DiscoModel'  is null.");
             }
+            request.DiscoDTO.DiscoId = Guid.NewGuid();
             DiscoModel discoModel = DiscoDTO.DTOToDisco(request.DiscoDTO);
 
             _context.Discos.Add(discoModel);
