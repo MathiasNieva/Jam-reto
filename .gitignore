@@ -59,3 +59,4 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+RestApi/appsettings.Development.json
